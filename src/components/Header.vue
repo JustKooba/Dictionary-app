@@ -60,7 +60,7 @@ body {
   border-right: 1px solid gray;
   margin-right: 10px;
   font-size: 17px;
-  font-family: inherit;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   cursor: pointer;
 }
