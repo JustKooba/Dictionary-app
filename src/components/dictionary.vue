@@ -1,17 +1,21 @@
 <template>
   <div>
-    <input
-      type="text"
-      class="search-a-word"
-      v-model="word"
-      id="search-a-word"
-      placeholder="search a word"
-    />
+    <form @submit.prevent="getWord">
+      <input
+        type="text"
+        class="search-a-word"
+        v-model="word"
+        id="search-a-word"
+        placeholder="search a word"
+      />
+    </form>
   </div>
+  <h1 v-if="result">{{ result }}</h1>
 </template>
 
 <script>
 import axios from "axios";
+
 export default {
   name: "Dictionary",
   props: {
@@ -20,17 +24,18 @@ export default {
       default: "https://api.dictionaryapi.dev/api/v2/entries/en/",
     },
   },
-
+  data() {
+    return {
+      word: "",
+      result: "",
+    };
+  },
   methods: {
     async getWord() {
       const response = await axios.get(this.dictionary_api + this.word);
       console.log(response.data);
+      this.result = response.data[0].meanings[0].definitions[0].definition;
     },
-  },
-  data() {
-    return {
-      word: "",
-    };
   },
 };
 </script>
@@ -46,7 +51,7 @@ export default {
   margin-top: 20px;
   align-items: center;
   background-color: #f5f5f5;
-  border-radius: 7px;
+  border-radius: 10px;
   font-size: 15px;
   font-family: "Inter", sans-serif;
   font-weight: 700;
@@ -60,5 +65,12 @@ div {
   justify-content: center;
   align-items: center;
   width: 100%;
+}
+
+form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
