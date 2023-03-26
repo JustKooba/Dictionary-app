@@ -29,7 +29,7 @@
   <ul v-if="result">
     <li v-for="(meaning, index) in result[0].meanings" :key="index">
       <p>
-        <strong>{{ meaning.partOfSpeech }}</strong>
+        <strong class="partOfSpeech">{{ meaning.partOfSpeech }}</strong>
       </p>
       <ul>
         <li v-for="(definition, index) in meaning.definitions" :key="index">
@@ -140,5 +140,17 @@ form {
   color: #a649ed;
   font-size: 17px;
   text-align: left;
+}
+
+.partOfSpeech::after {
+  content: "";
+  display: inline-block;
+  height: 1px;
+  width: 75%;
+  background-color: #f5f5f5;
+  margin-left: 5px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 </style>
