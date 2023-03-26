@@ -10,14 +10,23 @@
       />
     </form>
   </div>
-  <h1 v-if="result">{{ word }}</h1>
-  <p v-if="result">{{ result.phonetic }}</p>
-  <h2 v-if="result">noun</h2>
-  <h3 v-if="result">Meaning</h3>
-  <p v-if="result">{{ result }}</p>
+  <div class="top-left">
+    <h1 v-if="result">{{ word }}</h1>
+    <p v-if="result">{{ result[0].phonetic }}</p>
+    <button @click="pronounce" v-if="result">
+      <img
+        src="../assets/play.svg"
+        alt="purple triangle pointing to the right"
+      />
+    </button>
+  </div>
+
+  <h3 v-if="result">Meanings:</h3>
   <ul v-if="result">
-    <li v-for="(meaning, index) in result.meanings" :key="index">
-      <h2>{{ meaning.partOfSpeech }}</h2>
+    <li v-for="(meaning, index) in result[0].meanings" :key="index">
+      <p>
+        <strong>{{ meaning.partOfSpeech }}</strong>
+      </p>
       <ul>
         <li v-for="(definition, index) in meaning.definitions" :key="index">
           {{ definition.definition }}
@@ -48,7 +57,11 @@ export default {
     async getWord() {
       const response = await axios.get(this.dictionary_api + this.word);
       console.log(response.data);
-      this.result = response.data[0].meanings[0].definitions[0].definition;
+      this.result = response.data;
+    },
+    pronounce() {
+      const audio = new Audio(this.result[0].phonetics[0].audio);
+      audio.play();
     },
   },
 };
