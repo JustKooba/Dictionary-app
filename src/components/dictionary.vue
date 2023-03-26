@@ -11,14 +11,18 @@
     </form>
   </div>
   <div class="top-left">
-    <h1 v-if="result">{{ word }}</h1>
-    <p v-if="result">{{ result[0].phonetic }}</p>
-    <button @click="pronounce" v-if="result">
-      <img
-        src="../assets/play.svg"
-        alt="purple triangle pointing to the right"
-      />
-    </button>
+    <div class="left">
+      <h1 class="word" v-if="result">{{ word }}</h1>
+      <p v-if="result" class="phonetic">{{ result[0].phonetic }}</p>
+    </div>
+    <div class="right">
+      <button @click="pronounce" v-if="result" class="play">
+        <img
+          src="../assets/play.svg"
+          alt="purple triangle pointing to the right"
+        />
+      </button>
+    </div>
   </div>
 
   <h3 v-if="result">Meanings:</h3>
@@ -99,5 +103,42 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.play {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  align-items: center;
+  border-radius: 50%;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.top-left .left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.top-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.top-left .word {
+  margin-bottom: -17px;
+}
+
+.phonetic {
+  color: #a649ed;
+  font-size: 17px;
+  text-align: left;
 }
 </style>
