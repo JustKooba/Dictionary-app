@@ -10,7 +10,21 @@
       />
     </form>
   </div>
-  <h1 v-if="result">{{ result }}</h1>
+  <h1 v-if="result">{{ word }}</h1>
+  <p v-if="result">{{ result.phonetic }}</p>
+  <h2 v-if="result">noun</h2>
+  <h3 v-if="result">Meaning</h3>
+  <p v-if="result">{{ result }}</p>
+  <ul v-if="result">
+    <li v-for="(meaning, index) in result.meanings" :key="index">
+      <h2>{{ meaning.partOfSpeech }}</h2>
+      <ul>
+        <li v-for="(definition, index) in meaning.definitions" :key="index">
+          {{ definition.definition }}
+        </li>
+      </ul>
+    </li>
+  </ul>
 </template>
 
 <script>
