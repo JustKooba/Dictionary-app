@@ -26,7 +26,7 @@
   </div>
 
   <h3 v-if="result">Meanings:</h3>
-  <ul v-if="result">
+  <ul v-if="result" class="meanings">
     <li v-for="(meaning, index) in result[0].meanings" :key="index">
       <p>
         <strong class="partOfSpeech">{{ meaning.partOfSpeech }}</strong>
@@ -34,6 +34,7 @@
       <ul>
         <li v-for="(definition, index) in meaning.definitions" :key="index">
           {{ definition.definition }}
+          <h4>Synonyms: {{ synonym }}</h4>
         </li>
       </ul>
     </li>
@@ -73,6 +74,7 @@ export default {
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Inter:wght@400;700&family=Lora&display=swap");
+
 .search-a-word {
   width: 92%;
   height: 20px;
@@ -112,21 +114,26 @@ form {
   align-items: center;
   border-radius: 50%;
   border: none;
-  margin-left: 10px;
   cursor: pointer;
+  margin-left: 10px;
 }
 
 .top-left .left {
+  font-family: "Inter", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   text-align: left;
+  margin-right: 10px;
 }
 
 .top-left {
+  font-family: "Inter", sans-serif;
+  width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   margin-top: 20px;
   text-align: left;
@@ -134,12 +141,18 @@ form {
 
 .top-left .word {
   margin-bottom: -17px;
+  font-family: "Inter", sans-serif;
 }
 
 .phonetic {
   color: #a649ed;
   font-size: 17px;
   text-align: left;
+  font-family: "Inter", sans-serif;
+}
+
+.partOfSpeech {
+  font-family: "Inter", sans-serif;
 }
 
 .partOfSpeech::after {
@@ -152,5 +165,9 @@ form {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+}
+
+.meanings {
+  font-family: "Inter", sans-serif;
 }
 </style>
