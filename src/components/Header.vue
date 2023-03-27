@@ -15,7 +15,12 @@
         </div>
       </div>
       <div id="dark-mode-switch">
-        <input type="checkbox" id="switch" name="switch" />
+        <input
+          type="checkbox"
+          id="switch"
+          name="switch"
+          @click="toggleDarkMode"
+        />
         <label for="switch"></label>
       </div>
       <img src="../assets/icon-moon-light.svg" alt="moon icon" />
@@ -26,6 +31,12 @@
 <script>
 export default {
   name: "HeaderMain",
+
+  methods: {
+    toggleDarkMode() {
+      this.$emit("toggleDarkMode");
+    },
+  },
 };
 </script>
 

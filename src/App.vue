@@ -1,7 +1,7 @@
 <template>
   <div>
     <header-main />
-    <dictionary />
+    <dictionary v-on:toggleDarkMode="toggleDarkMode" />
   </div>
 </template>
 

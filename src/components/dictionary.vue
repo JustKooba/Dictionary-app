@@ -73,6 +73,10 @@ export default {
 
       audio.play();
     },
+    toggleDarkMode() {
+      document.body.classList.toggle("dark");
+      this.$emit("toggleDarkMode");
+    },
   },
 };
 </script>
@@ -182,5 +186,10 @@ h4 span {
 
 h3 {
   font-family: "Inter", sans-serif;
+}
+
+.dark {
+  background-color: #1e1e1e;
+  color: white;
 }
 </style>
