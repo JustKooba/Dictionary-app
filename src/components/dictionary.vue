@@ -34,8 +34,10 @@
       <ul>
         <li v-for="(definition, index) in meaning.definitions" :key="index">
           {{ definition.definition }}
-          <h4>Synonyms: {{ synonym }}</h4>
         </li>
+        <h4>
+          Synonyms: <span>{{ meaning.synonyms[0] }}</span>
+        </h4>
       </ul>
     </li>
   </ul>
@@ -65,7 +67,10 @@ export default {
       this.result = response.data;
     },
     pronounce() {
-      const audio = new Audio(this.result[0].phonetics[0].audio);
+      const audio = new Audio(
+        this.result[0].phonetics[this.result[0].phonetics.length - 1].audio
+      );
+
       audio.play();
     },
   },
@@ -168,6 +173,14 @@ form {
 }
 
 .meanings {
+  font-family: "Inter", sans-serif;
+}
+
+h4 span {
+  color: #a649ed;
+}
+
+h3 {
   font-family: "Inter", sans-serif;
 }
 </style>
