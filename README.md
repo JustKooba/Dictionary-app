@@ -1,3 +1,6 @@
+<div style="text-align: center;">
+
+
 # Dictionary app
 this is a frontend mentor coding challenge. In that challenge you have to recreate the design of a example dictionary app.
 
@@ -24,4 +27,4 @@ Contributions are always welcome!
 
 Just fork the repo and change what's wrong.
 
-
+</div>
