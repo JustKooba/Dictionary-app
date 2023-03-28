@@ -1,4 +1,4 @@
-<div style="text-align: center;">
+
 
 
 # Dictionary app
@@ -27,4 +27,3 @@ Contributions are always welcome!
 
 Just fork the repo and change what's wrong.
 
-</div>
