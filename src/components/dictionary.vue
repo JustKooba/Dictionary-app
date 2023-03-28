@@ -24,23 +24,24 @@
       </button>
     </div>
   </div>
-
-  <h3 v-if="result">Meanings:</h3>
-  <ul v-if="result" class="meanings">
-    <li v-for="(meaning, index) in result[0].meanings" :key="index">
-      <p>
-        <strong class="partOfSpeech">{{ meaning.partOfSpeech }}</strong>
-      </p>
-      <ul>
-        <li v-for="(definition, index) in meaning.definitions" :key="index">
-          {{ definition.definition }}
-        </li>
-        <h4>
-          Synonyms: <span>{{ meaning.synonyms[0] }}</span>
-        </h4>
-      </ul>
-    </li>
-  </ul>
+  <div class="bottom">
+    <h3 v-if="result">Meanings:</h3>
+    <ul v-if="result" class="meanings">
+      <li v-for="(meaning, index) in result[0].meanings" :key="index">
+        <p>
+          <strong class="partOfSpeech">{{ meaning.partOfSpeech }}</strong>
+        </p>
+        <ul>
+          <li v-for="(definition, index) in meaning.definitions" :key="index">
+            {{ definition.definition }}
+          </li>
+          <h4>
+            Synonyms: <span>{{ meaning.synonyms[0] }}</span>
+          </h4>
+        </ul>
+      </li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -164,6 +165,15 @@ form {
   font-family: "Inter", sans-serif;
 }
 
+.bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  text-align: left;
+}
+
 .partOfSpeech::after {
   content: "";
   display: inline-block;
@@ -191,5 +201,16 @@ h3 {
 .dark {
   background-color: #1e1e1e;
   color: white;
+}
+@media (min-width: 650px) {
+  .top-left,
+  .bottom,
+  form {
+    max-width: 550px;
+    margin: auto;
+  }
+  .bottom {
+    margin: auto;
+  }
 }
 </style>

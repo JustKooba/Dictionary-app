@@ -123,4 +123,11 @@ body {
 #dark-mode-switch input[type="checkbox"]:checked + label:after {
   transform: translateX(25px);
 }
+
+@media (min-width: 650px) {
+  .header {
+    max-width: 550px;
+    margin: auto;
+  }
+}
 </style>
