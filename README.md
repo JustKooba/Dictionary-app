@@ -8,7 +8,6 @@ this is a frontend mentor coding challenge. In that challenge you have to recrea
 ## Design
 
 
-
 ![design showing a example Dictionary app](https://raw.githubusercontent.com/JustKooba/Dictionary-app/master/src/assets/design/mobiledesign.png)
 
 ### The design consists of:
