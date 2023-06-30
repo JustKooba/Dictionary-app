@@ -2,7 +2,7 @@
 
 
 # Dictionary app
-this is a frontend mentor coding challenge. In that challenge you have to recreate the design of a example dictionary app.
+this is a frontend mentor coding challenge. In that challenge you have to recreate the design of an example dictionary app.
 
 
 ## Design
